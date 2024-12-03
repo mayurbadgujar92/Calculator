@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="calculater.css">
+     <script type="text/javascript" src="calculater.js"></script>
+</head>
+
+<body onload="focuscursor();button_Disable_OnloadPage()">
+   
+    <div class="box">
+        <h1>Calculater</h1>
+        
+        <div class="containt">
+
+            <table>
+                <tr>
+                    <td>Enter The First Number</td>
+                    <td>
+                    <input type="text" id="n1" name="n1" autocomplete="off" onkeypress="isnumber(event)">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Enter The Second Number</td>
+                <td>
+                    <input type="text" id="n2" name="n2" autocomplete="off">
+                </td>
+            </tr>
+        
+            <tr>
+                <td>Select Option</td>
+                <td>
+                    <select id="op">
+                         <option value="">Select Option</option>
+                         <option value="+">Addition</option>
+                         <option value="-">Subtraction</option>
+                         <option value="*">Multiplication</option>
+                         <option value="/">Division</option>
+                         <option value="%">Module</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Result</td>
+                <td>
+                    <input type="text" id="res" name="res" readonly>
+                </td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" id="btnadd" value="Do Task" onclick="doTask()">
+                    <input type="button"  id="btnclear" value="Clear All" onclick="clearAllFields()">
+                </td>
+            </tr>
+             
+        </table>
+    </div>
+    </div>
+    <script type="text/javascript">
+        
+        document.onkeydown = function(e)
+        {
+            if(e.ctrlKey && e.which == 67)
+            {
+                clearAllFields();
+            }            
+        }
+        
+        
+        const txtfirstnum1 = document.getElementById('n1');
+        const doTaskbtn = document.getElementById('btnadd');
+
+        txtfirstnum1.addEventListener("keyup", function(){
+
+            if(txtfirstnum1.value.length > 0)
+            {
+                doTaskbtn.disabled = false;
+            }
+            else
+            {
+                doTaskbtn.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>
